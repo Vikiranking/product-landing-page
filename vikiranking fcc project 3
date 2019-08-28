@@ -1,0 +1,425 @@
+<doctype HTML>
+  <html>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #d3d3d3;
+      font-family: 'Lato', sans-serif;
+    }
+
+    #page-wrapper {
+      position: relative;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .btn {
+      padding: 0 20px;
+      height: 40px;
+      font-size: 1em;
+      font-weight: 900;
+      text-transform: uppercase;
+      border: 3px black solid;
+      border-radius: 2px;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: flex;
+    }
+
+    header {
+      position: fixed;
+      top: -5px;
+      min-height: 50px;
+      padding: 0px 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #173E43;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-wrap: wrap;
+      }
+    }
+
+    .logo {
+      width: 60vw;
+    }
+
+    @media (max-width: 650px) {
+      .logo {
+        margin-top: 15px;
+        width: 100%;
+        position: relative;
+      }
+    }
+
+    .logo>img {
+      width: 100% height: 100%;
+      max-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-left: 20px;
+    }
+
+    @media (max-width: 650px) {
+      .logo>img {
+        margin: 0 auto;
+      }
+    }
+
+    nav {
+      font-weight: 400;
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 50px;
+      }
+      nav li {
+        padding-bottom: 5px;
+      }
+    }
+
+    nav>ul {
+      width: 35vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    @media (max-width: 650px) {
+      nav>ul {
+        flex-direction: column;
+      }
+    }
+
+    #hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 200px;
+      margin-top: 50px;
+    }
+
+    #hero>h2 {
+      margin-bottom: 5px;
+      word-wrap: break-word;
+    }
+
+    #hero input[type="email"] {
+      max-width: 275px;
+      width: 100%;
+      padding: 5px;
+    }
+
+    #hero input[type="submit"] {
+      max-width: 150px;
+      width: 100%;
+      height: 30px;
+      margin: 15px 0;
+      border: 0;
+      background-color: grey;
+    }
+
+    #hero input[type="submit"]:hover {
+      background-color: #3FB0AC;
+      transition: background-color 1s;
+    }
+
+    @media (max-width: 650px) {
+      #hero {
+        margin-top: 120px;
+      }
+    }
+
+    #features {
+      margin-top: 30px;
+    }
+
+    #features .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 125px;
+      width: 20vw;
+      color: #173E43;
+    }
+
+    @media (max-width: 550px) {
+      #features .icon {
+        display: none;
+      }
+    }
+
+    #features .desc {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 125px;
+      width: 80vw;
+      padding: 5px;
+    }
+
+    @media (max-width: 550px) {
+      #features .desc {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      #features {
+        margin-top: 0;
+      }
+    }
+
+    #how-it-works {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #how-it-works>iframe {
+      max-width: 560px;
+      width: 100%;
+    }
+
+    #pricing {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: calc(100% / 3);
+      margin: 10px;
+      border: 1px solid #000;
+      border-radius: 3px;
+    }
+
+    .product>.level {
+      background-color: #173E43;
+      color: white;
+      padding: 15px 0;
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .product>h2 {
+      margin-top: 15px;
+    }
+
+    .product>ol {
+      margin: 15px 0;
+    }
+
+    .product>ol>li {
+      padding: 5px 0;
+    }
+
+    .product>button {
+      border: 0;
+      margin: 15px 0;
+      color: white;
+      background-color: #173E43;
+      font-weight: 400;
+    }
+
+    .product>button:hover {
+      background-color: #3FB0AC;
+      transition: background-color 1s;
+    }
+
+    @media (max-width: 800px) {
+      #pricing {
+        flex-direction: column;
+      }
+      .product {
+        max-width: 300px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+      }
+    }
+
+    footer {
+      margin-top: 30px;
+      background-color: #173E43;
+      padding: 20px;
+    }
+
+    footer>ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    footer>ul>li {
+      padding: 0 10px;
+    }
+
+    footer>span {
+      margin-top: 5px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.9em;
+      color: white;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+  <body>
+    <div id="page-wrapper">
+      <header id="header">
+        <div class="logo">
+          <img id="header-img" src="https://c4d709dd302a2586107d-f8305d22c3db1fdd6f8607b49e47a10c.ssl.cf1.rackcdn.com/thumbnails/stock-images/86530708e6153a7d36164ec7613fdc19.png" alt="Original Benz Gwagon" width=200px; height=92px; />
+
+        </div>
+
+        <nav id="nav-bar">
+          <ul>
+            <li><a class="nav-link" href="#features"><button>Features</a></button>
+            </li>
+            <li><a class="nav-link" href="#how-it-works"><button>How It Works</a></button>
+            </li>
+            <li><a class="nav-link" href="#pricing"><button>Pricing</a></button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="container"></div>
+
+      <section id="hero">
+        <h2> Mercedes-Benz Summer Event</h2>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+          <input name="email" id="email" type="email" placeholder="Enter your email address" required />
+          <input id="submit" type="submit" value="Subscribe" class="btn" />
+        </form>
+
+      </section>
+
+      <div class="container">
+        <section id="features">
+          <div class="grid">
+            <div class="icon"><i class="fa fa-3x fa-flag-checkered"></i>
+            </div>
+            <div class="desc">
+              <h2>Innovation</h2>
+              <p> Within the timeless body is a state-of-the-art cockpit, with standard and available technologies from dual 12.3-inch displays, intuitive steering-wheel Touch Controls, and voice control for the navigation, audio and numerous comfort features.
+              </p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="icon"><i class="fa fa-3x fa-truck"></i></div>
+            <div class="desc">
+              <h2> Special Shipping Offers </h2>
+              <p>
+                Hurry in to receive up to $600 credit towards your first month's payment on selected models, We also have a free return policy valid for 14 days after purchase if you are not satisfied with the model. T & C apply.
+
+              </p>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="icon">
+              <i class="fa fa-3x fa-cog" aria-hidden="true"></i>
+            </div>
+            <div class="desc">
+              <h2>Quality Assurance</h2>
+              <p>
+                For every purchase you make, we will ensure there are no damages, faults or dents on your car.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="how-it-works">
+          <iframe id="video" height="360" src="c:\Users\pc\Desktop\2019-G-SUV.mp4" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section id="pricing">
+          <div class="product" id="G550">
+            <div class="level">G 550 SUV</div>
+            <h2>$ 124,500 </h2>
+            <ol>
+              <li>5.6 Sec Acceleration (0-60mph).</li>
+              <li>416 hp Net Power (5,250-5,500 rpm).</li>
+              <li>450 lb-ft Torque (2,000-4,750 rpm).</li>
+
+            </ol>
+            <button class="btn">Buy</button>
+          </div>
+          <div class="product" id="AMG">
+            <div class="level">AMG 5 63 SUV </div>
+            <h2>$ 147,500</h2>
+            <ol>
+              <li>4.5 Sec Acceleration (0-60mph).</li>
+              <li>577 hp Net Power (6,000 rpm).</li>
+              <li>627 lb-ft Torque (2,500-3,500 rpm).</li>
+              <li></li>
+            </ol>
+            <button class="btn">Buy</button>
+          </div>
+          <div class="product" id="Coupe">
+            <div class="level">S-Class Coupe</div>
+            <h2>$ 125,950</h2>
+            <ol>
+              <li>4.5 Sec Acceleration (0-60mph).</li>
+              <li>463 hp Power (5,250-6,000 rpm).</li>
+              <li>516 lb-ft Torque (2,000-4,000).</li>
+
+            </ol>
+            <button class="btn">Buy</button>
+          </div>
+        </section>
+        <footer>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <span>Copyright 2019, Mercedes-Benz Summer Events</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+
+  </html>
